@@ -14,16 +14,16 @@ struct ButtonModel {
     let label: String
     let imageName: String
     let color: Color
-    let function: () -> ()
+    let function: () -> Void
     
-    init(label: String, color: Color, function: @escaping () -> ()) {
+    init(label: String, color: Color, function: @escaping () -> Void) {
         self.label = label
         self.color = color
         self.function = function
         self.imageName = ""
     }
     
-    init(imageName: String, color: Color, function: @escaping () -> ()) {
+    init(imageName: String, color: Color, function: @escaping () -> Void) {
         self.imageName = imageName
         self.color = color
         self.function = function

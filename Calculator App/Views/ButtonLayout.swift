@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-
 struct ButtonLayout: View {
     var screenWidth: CGFloat
+    
+    
     var buttonRows = [
         [
             ButtonModel(label: "C", color: .secondary, function: emptyPlaceHolderFunction),

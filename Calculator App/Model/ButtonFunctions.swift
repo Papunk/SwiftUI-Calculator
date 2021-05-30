@@ -34,3 +34,7 @@ func inputDecimalPoint() {
 func solveExpression() {
     
 }
+
+func openSettings() {
+    
+}

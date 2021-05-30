@@ -10,11 +10,12 @@ import SwiftUI
 struct ContentView: View {
     @State var screenWidth = UIScreen.main.bounds.width
     @State var screenHeight = UIScreen.main.bounds.height
-
+    
+    @State var expression = Expression()
     
     var body: some View {
         VStack {
-            CalculatorDisplay(expression: "Hello", screenWidth: screenWidth, screenHeight: screenHeight).padding()
+            CalculatorDisplay(screenWidth: screenWidth, screenHeight: screenHeight).padding()
             ButtonLayout(screenWidth: screenWidth)
         }
     }

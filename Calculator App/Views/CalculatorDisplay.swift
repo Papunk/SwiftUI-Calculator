@@ -7,14 +7,49 @@
 
 import SwiftUI
 
+class Expression: ObservableObject {
+    var data = ""
+    
+    init(_ data: String) {
+        self.data = data
+    }
+    
+    func clearDisplay() {
+        
+    }
+
+    func openParenthesis() {
+        
+    }
+
+    func closeParenthesis() {
+        
+    }
+
+    func inputNumber() {
+        
+    }
+
+    func inputOperator() {
+        
+    }
+
+    func inputDecimalPoint() {
+        
+    }
+
+    func solveExpression() {
+        
+    }
+}
+
 struct CalculatorDisplay: View {
-    @State var expression: String
     var screenWidth: CGFloat
     var screenHeight: CGFloat
         
     var body: some View {
         
-        Text(expression)
+        Text("2•(1+3)÷3") // ref to environment object here
             .frame(width: screenWidth - 15, height: screenHeight / 4, alignment: .center)
             .background(Color.gray.opacity(0.1))
             .font(Font.title).colorInvert()
@@ -26,6 +61,6 @@ struct CalculatorDisplay: View {
 
 struct CalculatorDisplay_Previews: PreviewProvider {
     static var previews: some View {
-        CalculatorDisplay(expression: "2•(1+3)÷3", screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
+        CalculatorDisplay(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height)
     }
 }
