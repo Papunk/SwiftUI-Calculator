@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var screenWidth = UIScreen.main.bounds.width
+    @State var screenHeight = UIScreen.main.bounds.height
+
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            CalculatorDisplay(expression: "Hello", screenWidth: screenWidth, screenHeight: screenHeight).padding()
+            ButtonLayout(screenWidth: screenWidth)
+        }
     }
 }
 
