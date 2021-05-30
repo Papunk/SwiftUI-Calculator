@@ -20,12 +20,12 @@ func emptyPlaceHolderFunction() {}
 
 struct CalculatorButton: View {
     var fb: ButtonModel
-    var size: CGFloat
+    var screenWidth: CGFloat
     
     var body: some View {
         Button(fb.label, action: fb.function)
             .padding()
-            .frame(width: size, height: size)
+            .frame(width: screenWidth / 4 - 10, height: screenWidth / 4 - 10)
             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
             .background(fb.color)
             .foregroundColor(.white)
@@ -37,5 +37,5 @@ struct CalculatorButton: View {
 
 struct CalculatorButton_Previews: PreviewProvider {
     static var previews: some View {
-        CalculatorButton(fb: ButtonModel(label: "test", color: .pink, function: emptyPlaceHolderFunction), size: 100)    }
+        CalculatorButton(fb: ButtonModel(label: "test", color: .pink, function: emptyPlaceHolderFunction), screenWidth: 400)    }
 }
