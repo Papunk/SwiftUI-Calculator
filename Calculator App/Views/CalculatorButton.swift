@@ -15,7 +15,22 @@ struct ButtonModel {
     let imageName: String
     let color: Color
     let function: () -> ()
+    
+    init(label: String, color: Color, function: @escaping () -> ()) {
+        self.label = label
+        self.color = color
+        self.function = function
+        self.imageName = ""
+    }
+    
+    init(imageName: String, color: Color, function: @escaping () -> ()) {
+        self.imageName = imageName
+        self.color = color
+        self.function = function
+        self.label = ""
+    }
 }
+
 
 func emptyPlaceHolderFunction() {}
 
@@ -44,5 +59,5 @@ struct CalculatorButton: View {
 
 struct CalculatorButton_Previews: PreviewProvider {
     static var previews: some View {
-        CalculatorButton(fb: ButtonModel(label: "test", imageName: "", color: .pink, function: emptyPlaceHolderFunction), screenWidth: 400)    }
+        CalculatorButton(fb: ButtonModel(label: "test", color: .pink, function: emptyPlaceHolderFunction), screenWidth: 400)    }
 }
