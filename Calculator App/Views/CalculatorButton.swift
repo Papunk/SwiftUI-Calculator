@@ -14,19 +14,16 @@ struct ButtonModel {
     let label: String
     let imageName: String
     let color: Color
-    let function: () -> Void
     
-    init(label: String, color: Color, function: @escaping () -> Void) {
+    init(label: String, color: Color) {
         self.label = label
         self.color = color
-        self.function = function
         self.imageName = ""
     }
     
-    init(imageName: String, color: Color, function: @escaping () -> Void) {
+    init(imageName: String, color: Color) {
         self.imageName = imageName
         self.color = color
-        self.function = function
         self.label = ""
     }
 }
@@ -37,27 +34,38 @@ func emptyPlaceHolderFunction() {}
 struct CalculatorButton: View {
     var fb: ButtonModel
     var screenWidth: CGFloat
+    var function: () -> Void
     
     var body: some View {
-        Button(action: fb.function) {
+        Button(action: function) {
             ZStack {
                 // empty imageName results in text button and vice versa
                 Image(systemName: fb.imageName)
                 Text(fb.label)
+                    .font(Font.custom("Avenir", size: 32))
+                    .fontWeight(.medium)
             }
         }
         .padding()
         .frame(width: screenWidth / 4 - 10, height: screenWidth / 4 - 10)
         .font(.title)
-        .background(fb.color)
+        .background(
+            RadialGradient(
+                gradient: Gradient(colors: [fb.color, Color.white]),
+                center: .bottom,
+                startRadius: 0,
+                endRadius: 450
+            )
+        )
         .foregroundColor(.white)
         .clipShape(RoundedRectangle(cornerSize: .init(width: 20, height: 20)))
         .overlay(RoundedRectangle(cornerSize: .init(width: 20, height: 20)).stroke(lineWidth: 2).colorInvert())
-        .shadow(radius: 10)
+        .shadow(radius: 10, x: 0, y: 10)
     }
 }
 
 struct CalculatorButton_Previews: PreviewProvider {
     static var previews: some View {
-        CalculatorButton(fb: ButtonModel(label: "test", color: .pink, function: emptyPlaceHolderFunction), screenWidth: 400)    }
+        CalculatorButton(fb: ButtonModel(label: "t", color: .pink), screenWidth: 400, function: {})
+    }
 }

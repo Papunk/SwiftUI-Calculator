@@ -15,6 +15,7 @@
 		EB07B2ED2644E09E00414112 /* ButtonLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB07B2EC2644E09E00414112 /* ButtonLayout.swift */; };
 		EB16734126631BBF00A5152C /* CalculatorDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16734026631BBF00A5152C /* CalculatorDisplay.swift */; };
 		EB1673432663F3AE00A5152C /* ButtonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1673422663F3AE00A5152C /* ButtonFunctions.swift */; };
+		EBE591AB2665677600321AAB /* ColorThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE591AA2665677600321AAB /* ColorThemes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		EB07B2EC2644E09E00414112 /* ButtonLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLayout.swift; sourceTree = "<group>"; };
 		EB16734026631BBF00A5152C /* CalculatorDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorDisplay.swift; sourceTree = "<group>"; };
 		EB1673422663F3AE00A5152C /* ButtonFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFunctions.swift; sourceTree = "<group>"; };
+		EBE591AA2665677600321AAB /* ColorThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				EB1673422663F3AE00A5152C /* ButtonFunctions.swift */,
+				EBE591AA2665677600321AAB /* ColorThemes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				EB07B2EA2644DD7800414112 /* CalculatorButton.swift in Sources */,
 				EB07B2DA2644DC6700414112 /* Calculator_AppApp.swift in Sources */,
 				EB07B2ED2644E09E00414112 /* ButtonLayout.swift in Sources */,
+				EBE591AB2665677600321AAB /* ColorThemes.swift in Sources */,
 				EB16734126631BBF00A5152C /* CalculatorDisplay.swift in Sources */,
 				EB1673432663F3AE00A5152C /* ButtonFunctions.swift in Sources */,
 			);

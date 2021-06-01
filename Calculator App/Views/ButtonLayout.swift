@@ -9,38 +9,39 @@ import SwiftUI
 
 struct ButtonLayout: View {
     var screenWidth: CGFloat
+    @Binding var expression: Expression
     
     
     var buttonRows = [
         [
-            ButtonModel(label: "C", color: .secondary, function: emptyPlaceHolderFunction),
-            ButtonModel(label: "(", color: .secondary, function: emptyPlaceHolderFunction),
-            ButtonModel(label: ")", color: .secondary, function: emptyPlaceHolderFunction),
-            ButtonModel(label: op.add, color: .pink, function: emptyPlaceHolderFunction)
+            ButtonModel(label: "C", color: .secondary),
+            ButtonModel(label: "(", color: .secondary),
+            ButtonModel(label: ")", color: .secondary),
+            ButtonModel(label: op.add, color: .pink)
         ],
         [
-            ButtonModel(label: "1", color: .gray, function: emptyPlaceHolderFunction),
-            ButtonModel(label: "2", color: .gray, function: emptyPlaceHolderFunction),
-            ButtonModel(label: "3", color: .gray, function: emptyPlaceHolderFunction),
-            ButtonModel(label: op.sub, color: .pink, function: emptyPlaceHolderFunction)
+            ButtonModel(label: "7", color: .gray),
+            ButtonModel(label: "8", color: .gray),
+            ButtonModel(label: "9", color: .gray),
+            ButtonModel(label: op.sub, color: .pink)
         ],
         [
-            ButtonModel(label: "4", color: .gray, function: emptyPlaceHolderFunction),
-            ButtonModel(label: "5", color: .gray, function: emptyPlaceHolderFunction),
-            ButtonModel(label: "6", color: .gray, function: emptyPlaceHolderFunction),
-            ButtonModel(label: op.mult, color: .pink, function: emptyPlaceHolderFunction)
+            ButtonModel(label: "4", color: .gray),
+            ButtonModel(label: "5", color: .gray),
+            ButtonModel(label: "6", color: .gray),
+            ButtonModel(label: op.mult, color: .pink)
         ],
         [
-            ButtonModel(label: "7", color: .gray, function: emptyPlaceHolderFunction),
-            ButtonModel(label: "8", color: .gray, function: emptyPlaceHolderFunction),
-            ButtonModel(label: "9", color: .gray, function: emptyPlaceHolderFunction),
-            ButtonModel(label: op.div, color: .pink, function: emptyPlaceHolderFunction)
+            ButtonModel(label: "1", color: .gray),
+            ButtonModel(label: "2", color: .gray),
+            ButtonModel(label: "3", color: .gray),
+            ButtonModel(label: op.div, color: .pink)
         ],
         [
-            ButtonModel(imageName: "gearshape.2", color: .secondary, function: emptyPlaceHolderFunction),
-            ButtonModel(label: "0", color: .gray, function: emptyPlaceHolderFunction),
-            ButtonModel(label: ".", color: .secondary, function: emptyPlaceHolderFunction),
-            ButtonModel(label: op.eq, color: .pink, function: emptyPlaceHolderFunction)
+            ButtonModel(imageName: "gearshape.2", color: .secondary),
+            ButtonModel(label: "0", color: .gray),
+            ButtonModel(label: ".", color: .secondary),
+            ButtonModel(label: op.eq, color: .pink)
         ]
     ]
 
@@ -51,7 +52,7 @@ struct ButtonLayout: View {
                 ForEach(buttonRows.indices) { i in
                     HStack {
                         ForEach(buttonRows[i].indices) { j in
-                            CalculatorButton(fb: buttonRows[i][j], screenWidth: screenWidth)
+                            CalculatorButton(fb: buttonRows[i][j], screenWidth: screenWidth, function: expression.inputNumber)
                         }
                     }
                 }
@@ -62,6 +63,6 @@ struct ButtonLayout: View {
 
 struct ButtonLayout_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonLayout(screenWidth: UIScreen.main.bounds.width)
+        ButtonLayout(screenWidth: UIScreen.main.bounds.width, expression: .constant(Expression()))
     }
 }
