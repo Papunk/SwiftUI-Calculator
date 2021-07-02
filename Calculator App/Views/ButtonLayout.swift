@@ -52,7 +52,9 @@ struct ButtonLayout: View {
                 ForEach(buttonRows.indices) { i in
                     HStack {
                         ForEach(buttonRows[i].indices) { j in
-                            CalculatorButton(fb: buttonRows[i][j], screenWidth: screenWidth, function: expression.inputNumber)
+                            CalculatorButton(fb: buttonRows[i][j], screenWidth: screenWidth, function: {
+                                expression.data += "n"
+                            })
                         }
                     }
                 }
