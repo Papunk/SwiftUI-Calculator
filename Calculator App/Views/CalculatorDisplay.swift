@@ -51,11 +51,11 @@ class Expression {
 struct CalculatorDisplay: View {
     var screenWidth: CGFloat
     var screenHeight: CGFloat
-    @Binding var expression: Expression
+    @Binding var expression: String
         
     var body: some View {
         
-        Text(expression.data.isEmpty ? "hello!" : expression.data)
+        Text(expression.isEmpty ? "hello!" : expression)
             .frame(width: screenWidth - 15, height: screenHeight / 4, alignment: .center)
             .background(Color.gray.opacity(0.1))
             .font(Font.title).colorInvert()
@@ -69,6 +69,6 @@ struct CalculatorDisplay: View {
 
 struct CalculatorDisplay_Previews: PreviewProvider {
     static var previews: some View {
-        CalculatorDisplay(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height, expression: .constant(Expression("2\(op.mult)(3+1\(op.div)8)")))
+        CalculatorDisplay(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height, expression: .constant("2\(op.mult)(3+1\(op.div)8)"))
     }
 }
