@@ -11,37 +11,36 @@ struct ButtonLayout: View {
     var screenWidth: CGFloat
     @Binding var expression: String
     
-    
     var buttonRows = [
         [
             ButtonModel(label: "C", color: .secondary),
             ButtonModel(label: "(", color: .secondary),
             ButtonModel(label: ")", color: .secondary),
-            ButtonModel(label: op.add, color: .pink)
+            ButtonModel(label: add, color: .pink)
         ],
         [
             ButtonModel(label: "7", color: .gray),
             ButtonModel(label: "8", color: .gray),
             ButtonModel(label: "9", color: .gray),
-            ButtonModel(label: op.sub, color: .pink)
+            ButtonModel(label: sub, color: .pink)
         ],
         [
             ButtonModel(label: "4", color: .gray),
             ButtonModel(label: "5", color: .gray),
             ButtonModel(label: "6", color: .gray),
-            ButtonModel(label: op.mult, color: .pink)
+            ButtonModel(label: mult, color: .pink)
         ],
         [
             ButtonModel(label: "1", color: .gray),
             ButtonModel(label: "2", color: .gray),
             ButtonModel(label: "3", color: .gray),
-            ButtonModel(label: op.div, color: .pink)
+            ButtonModel(label: div, color: .pink)
         ],
         [
             ButtonModel(imageName: "gearshape.2", color: .secondary),
             ButtonModel(label: "0", color: .gray),
             ButtonModel(label: ".", color: .secondary),
-            ButtonModel(label: op.eq, color: .pink)
+            ButtonModel(label: eq, color: .pink)
         ]
     ]
 
@@ -53,7 +52,9 @@ struct ButtonLayout: View {
                     HStack {
                         ForEach(buttonRows[i].indices) { j in
                             CalculatorButton(fb: buttonRows[i][j], screenWidth: screenWidth) {
-                                expression += buttonRows[i][j].label
+                                if let newExp = buttonRows[i][j].evaluate(expression) {
+                                    expression = newExp
+                                }
                             }
                         }
                     }
