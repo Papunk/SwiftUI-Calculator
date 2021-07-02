@@ -11,8 +11,8 @@ struct ContentView: View {
     @State var screenWidth = UIScreen.main.bounds.width
     @State var screenHeight = UIScreen.main.bounds.height
     
-    @State var exp = Expression() // make this a string instead and see what happens
-
+    @State var exp = ""
+ 
     
     var body: some View {
         VStack {

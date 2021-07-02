@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ButtonLayout: View {
     var screenWidth: CGFloat
-    @Binding var expression: Expression
+    @Binding var expression: String
     
     
     var buttonRows = [
@@ -53,7 +53,7 @@ struct ButtonLayout: View {
                     HStack {
                         ForEach(buttonRows[i].indices) { j in
                             CalculatorButton(fb: buttonRows[i][j], screenWidth: screenWidth, function: {
-                                expression.data += "n"
+                                expression += "n"
                             })
                         }
                     }
@@ -65,6 +65,6 @@ struct ButtonLayout: View {
 
 struct ButtonLayout_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonLayout(screenWidth: UIScreen.main.bounds.width, expression: .constant(Expression()))
+        ButtonLayout(screenWidth: UIScreen.main.bounds.width, expression: .constant(""))
     }
 }
