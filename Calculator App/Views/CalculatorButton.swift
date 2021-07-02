@@ -10,6 +10,11 @@ import SwiftUI
 var op = (add: "+", sub: "-", div: "÷", mult: "×", eq: "=")
 var num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
+enum ButtonType {
+    case action // executes a function
+    case display // adds something to the display
+}
+
 struct ButtonModel {
     let label: String
     let imageName: String

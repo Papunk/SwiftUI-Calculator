@@ -12,11 +12,11 @@ struct ContentView: View {
     @State var screenHeight = UIScreen.main.bounds.height
     
     @State var exp = ""
- 
+ // TRY @ENVIRONMENT
     
     var body: some View {
         VStack {
-            CalculatorDisplay(screenWidth: screenWidth, screenHeight: screenHeight, data: $exp.data).padding()
+            CalculatorDisplay(screenWidth: screenWidth, screenHeight: screenHeight, expression: $exp).padding()
             ButtonLayout(screenWidth: screenWidth, expression: $exp)
         }
     }
