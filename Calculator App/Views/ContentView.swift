@@ -12,7 +12,6 @@ struct ContentView: View {
     @State var screenHeight = UIScreen.main.bounds.height
     
     @State var exp = ""
- // TRY @ENVIRONMENT
     
     var body: some View {
         VStack {

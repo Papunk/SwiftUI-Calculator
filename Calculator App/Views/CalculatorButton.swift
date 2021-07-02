@@ -7,35 +7,6 @@
 
 import SwiftUI
 
-var op = (add: "+", sub: "-", div: "÷", mult: "×", eq: "=")
-var num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-
-enum ButtonType {
-    case action // executes a function
-    case display // adds something to the display
-}
-
-struct ButtonModel {
-    let label: String
-    let imageName: String
-    let color: Color
-    
-    init(label: String, color: Color) {
-        self.label = label
-        self.color = color
-        self.imageName = ""
-    }
-    
-    init(imageName: String, color: Color) {
-        self.imageName = imageName
-        self.color = color
-        self.label = ""
-    }
-}
-
-
-func emptyPlaceHolderFunction() {}
-
 struct CalculatorButton: View {
     var fb: ButtonModel
     var screenWidth: CGFloat
@@ -71,6 +42,6 @@ struct CalculatorButton: View {
 
 struct CalculatorButton_Previews: PreviewProvider {
     static var previews: some View {
-        CalculatorButton(fb: ButtonModel(label: "t", color: .pink), screenWidth: 400, function: {})
+        CalculatorButton(fb: ButtonModel(label: "t", color: Color.pink), screenWidth: 400, function: {})
     }
 }
