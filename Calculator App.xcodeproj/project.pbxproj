@@ -15,6 +15,7 @@
 		EB07B2ED2644E09E00414112 /* ButtonLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB07B2EC2644E09E00414112 /* ButtonLayout.swift */; };
 		EB16734126631BBF00A5152C /* CalculatorDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB16734026631BBF00A5152C /* CalculatorDisplay.swift */; };
 		EB357819268FA730009E54DA /* ButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB357818268FA730009E54DA /* ButtonModel.swift */; };
+		EB35781B269129FD009E54DA /* ButtonSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB35781A269129FD009E54DA /* ButtonSet.swift */; };
 		EBE591AB2665677600321AAB /* ColorThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE591AA2665677600321AAB /* ColorThemes.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		EB07B2EC2644E09E00414112 /* ButtonLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLayout.swift; sourceTree = "<group>"; };
 		EB16734026631BBF00A5152C /* CalculatorDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorDisplay.swift; sourceTree = "<group>"; };
 		EB357818268FA730009E54DA /* ButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModel.swift; sourceTree = "<group>"; };
+		EB35781A269129FD009E54DA /* ButtonSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSet.swift; sourceTree = "<group>"; };
 		EBE591AA2665677600321AAB /* ColorThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 			children = (
 				EBE591AA2665677600321AAB /* ColorThemes.swift */,
 				EB357818268FA730009E54DA /* ButtonModel.swift */,
+				EB35781A269129FD009E54DA /* ButtonSet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			files = (
 				EB357819268FA730009E54DA /* ButtonModel.swift in Sources */,
 				EB07B2DC2644DC6700414112 /* ContentView.swift in Sources */,
+				EB35781B269129FD009E54DA /* ButtonSet.swift in Sources */,
 				EB07B2EA2644DD7800414112 /* CalculatorButton.swift in Sources */,
 				EB07B2DA2644DC6700414112 /* Calculator_AppApp.swift in Sources */,
 				EB07B2ED2644E09E00414112 /* ButtonLayout.swift in Sources */,

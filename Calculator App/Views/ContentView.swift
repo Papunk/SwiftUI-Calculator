@@ -13,6 +13,8 @@ struct ContentView: View {
     
     @State var exp = ""
     
+    // TODO: increase size of touch targets
+    
     var body: some View {
         VStack {
             CalculatorDisplay(screenWidth: screenWidth, screenHeight: screenHeight, expression: $exp)
