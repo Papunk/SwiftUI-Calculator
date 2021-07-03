@@ -15,7 +15,8 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            CalculatorDisplay(screenWidth: screenWidth, screenHeight: screenHeight, expression: $exp).padding()
+            CalculatorDisplay(screenWidth: screenWidth, screenHeight: screenHeight, expression: $exp)
+                .padding()
             ButtonLayout(screenWidth: screenWidth, expression: $exp)
         }
     }

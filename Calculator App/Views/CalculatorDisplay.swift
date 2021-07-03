@@ -26,6 +26,6 @@ struct CalculatorDisplay: View {
 
 struct CalculatorDisplay_Previews: PreviewProvider {
     static var previews: some View {
-        CalculatorDisplay(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height, expression: .constant("2\(op.mult)(3+1\(op.div)8)"))
+        CalculatorDisplay(screenWidth: UIScreen.main.bounds.width, screenHeight: UIScreen.main.bounds.height, expression: .constant("2\(mult)(3+1\(div)8)"))
     }
 }

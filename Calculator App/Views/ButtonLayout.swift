@@ -52,9 +52,7 @@ struct ButtonLayout: View {
                     HStack {
                         ForEach(buttonRows[i].indices) { j in
                             CalculatorButton(fb: buttonRows[i][j], screenWidth: screenWidth) {
-                                if let newExp = buttonRows[i][j].evaluate(expression) {
-                                    expression = newExp
-                                }
+                                buttonRows[i][j].modify(expression: &expression)
                             }
                         }
                     }
