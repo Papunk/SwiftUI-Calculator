@@ -7,7 +7,10 @@
 
 import SwiftUI
 
+
+
 // CONSTANTS
+
 
 
 let add = "+", sub = "-", div = "÷", mult = "×", eq = "=", dot = ".", openingPar = "(", closingPar = ")"
@@ -20,7 +23,9 @@ func isOperator(_ s: String) -> Bool { operators.contains(s) }
 func isOperator(_ s: Character) -> Bool { isOperator(String(s)) }
 
 
+
 // PROTOCOLS
+
 
 
 protocol ButtonModel {
@@ -29,35 +34,96 @@ protocol ButtonModel {
     var color: Color { get }
 }
 protocol ActionButton: ButtonModel {}
-protocol DisplayButton: ButtonModel { func modify(expression: inout String) }
+protocol DisplayButton: ButtonModel { func modify(expression e: inout String) }
 
 
-// STRUCTS
+
+// CLASSES
 
 
-struct NumberButton: DisplayButton {
+
+/**
+ * Models a button with a text label
+ */
+class LabelButton: ButtonModel {
+    
     let label: String?
     let imageName: String? = nil
     let color: Color
+    
+    init(label: String, color: Color) {
+        self.label = label
+        self.color = color
+    }
+    
+}
+
+
+class NumberButton: LabelButton, DisplayButton {
     
     func modify(expression e: inout String) {
         e.append(label!) // numbers can be added reguardless of what was added before
     }
 }
 
-struct OperatorButton: DisplayButton {
-    let label: String?
-    let imageName: String? = nil
-    let color: Color
+
+class OperatorButton: LabelButton, DisplayButton {
     
     func modify(expression e: inout String) {
-        let last = String(e.last!)
-        
-        if !last.isEmpty && !isOperator(last) && last != dot && last != openingPar {
-            e.append(label!)
+        if let lastChar = e.last {
+            let last = String(lastChar)
+            if !last.isEmpty && !isOperator(last) && last != dot && last != openingPar {
+                e.append(label!)
+            }
         }
+        
     }
 }
+
+
+class DotButton: LabelButton, DisplayButton {
+    
+    func modify(expression e: inout String) {
+        if e.isEmpty {
+            e.append(numbers[0] + dot)
+            return
+        }
+        
+        var last = String(e.last!)
+        
+        if last == closingPar {
+            e.append(mult)
+            last = mult
+        }
+        if isOperator(last) || last == openingPar {
+            e.append(numbers[0])
+            last = numbers[0]
+        }
+        
+        e.append(dot)
+    }
+}
+
+
+class ParButton: LabelButton, DisplayButton {
+    
+    static var bracketStack = 0
+    
+    func modify(expression e: inout String) {
+        <#code#>
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
