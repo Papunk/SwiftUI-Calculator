@@ -16,7 +16,7 @@ import SwiftUI
 let add = "+", sub = "-", div = "÷", mult = "×", eq = "=", dot = ".", openingPar = "(", closingPar = ")"
 var operators = [add, sub, div, mult]
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-
+// helper functions
 func isNumber(_ s: String) -> Bool { numbers.contains(s) }
 func isNumber(_ s: Character) -> Bool { isNumber(String(s)) }
 func isOperator(_ s: String) -> Bool { operators.contains(s) }
@@ -28,11 +28,15 @@ func isOperator(_ s: Character) -> Bool { isOperator(String(s)) }
 
 
 
+/**
+ * The main class that defines the three main attributes of a button
+ */
 protocol ButtonModel {
     var label: String? { get }
     var imageName: String? { get }
     var color: Color { get }
 }
+//Specific subcategories of a button
 protocol ActionButton: ButtonModel {}
 protocol DisplayButton: ButtonModel { func modify(expression e: inout String) }
 
@@ -58,6 +62,21 @@ class LabelButton: ButtonModel {
     
 }
 
+/**
+ * Models a button with an image label
+ */
+class ImageButton: ButtonModel {
+    let label: String? = nil
+    let imageName: String?
+    let color: Color
+    
+    init(imageName: String, color: Color) {
+        self.imageName = imageName
+        self.color = color
+    }
+}
+
+// Useful buttons mapped to specific calculator functions
 
 class NumberButton: LabelButton, DisplayButton {
     
@@ -65,7 +84,6 @@ class NumberButton: LabelButton, DisplayButton {
         e.append(label!) // numbers can be added reguardless of what was added before
     }
 }
-
 
 class OperatorButton: LabelButton, DisplayButton {
     
@@ -79,7 +97,6 @@ class OperatorButton: LabelButton, DisplayButton {
         
     }
 }
-
 
 class DotButton: LabelButton, DisplayButton {
     
@@ -104,13 +121,23 @@ class DotButton: LabelButton, DisplayButton {
     }
 }
 
-
 class ParButton: LabelButton, DisplayButton {
     
     static var bracketStack = 0
     
     func modify(expression e: inout String) {
-        <#code#>
+        switch label {
+        case openingPar:
+            
+            
+            ParButton.bracketStack += 1
+        case closingPar:
+            
+            
+            ParButton.bracketStack -= 1
+        default:
+            break
+        }
     }
 }
 
