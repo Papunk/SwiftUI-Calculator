@@ -11,36 +11,36 @@ struct ButtonLayout: View {
     var screenWidth: CGFloat
     @Binding var expression: String
     
-    var buttonRows = [
+    var buttonRows: [[ButtonModel]] = [
         [
-            ButtonModel(label: "C", color: .secondary),
-            ButtonModel(label: "(", color: .secondary),
-            ButtonModel(label: ")", color: .secondary),
-            ButtonModel(label: add, color: .pink)
+            ClearButton(label: "C", color: .secondary),
+            ParButton(label: "(", color: .secondary),
+            ParButton(label: ")", color: .secondary),
+            OperatorButton(label: add, color: .pink)
         ],
         [
-            ButtonModel(label: "7", color: .gray),
-            ButtonModel(label: "8", color: .gray),
-            ButtonModel(label: "9", color: .gray),
-            ButtonModel(label: sub, color: .pink)
+            NumberButton(label: "7", color: .gray),
+            NumberButton(label: "8", color: .gray),
+            NumberButton(label: "9", color: .gray),
+            OperatorButton(label: sub, color: .pink)
         ],
         [
-            ButtonModel(label: "4", color: .gray),
-            ButtonModel(label: "5", color: .gray),
-            ButtonModel(label: "6", color: .gray),
-            ButtonModel(label: mult, color: .pink)
+            NumberButton(label: "4", color: .gray),
+            NumberButton(label: "5", color: .gray),
+            NumberButton(label: "6", color: .gray),
+            OperatorButton(label: mult, color: .pink)
         ],
         [
-            ButtonModel(label: "1", color: .gray),
-            ButtonModel(label: "2", color: .gray),
-            ButtonModel(label: "3", color: .gray),
-            ButtonModel(label: div, color: .pink)
+            NumberButton(label: "1", color: .gray),
+            NumberButton(label: "2", color: .gray),
+            NumberButton(label: "3", color: .gray),
+            OperatorButton(label: div, color: .pink)
         ],
         [
-            ButtonModel(imageName: "gearshape.2", color: .secondary),
-            ButtonModel(label: "0", color: .gray),
-            ButtonModel(label: ".", color: .secondary),
-            ButtonModel(label: eq, color: .pink)
+            ImageButton(imageName: "gearshape.2", color: .secondary),
+            NumberButton(label: "0", color: .gray),
+            DotButton(label: ".", color: .secondary),
+            EqualsButton(label: eq, color: .pink)
         ]
     ]
 

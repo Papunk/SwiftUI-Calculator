@@ -35,22 +35,22 @@ protocol ButtonModel {
     var label: String? { get }
     var imageName: String? { get }
     var color: Color { get }
+    
+    func modify(expression e: inout String)
 }
-//Specific subcategories of a button
-protocol ActionButton: ButtonModel {}
-protocol DisplayButton: ButtonModel { func modify(expression e: inout String) }
-
 
 
 // CLASSES
 
+
+// TODO add validation to the types of buttons (i.e. ensure that number buttons are instantiatied with numbers)
+// TODO have a makeButton() function that returns a button depending on the label?
 
 
 /**
  * Models a button with a text label
  */
 class LabelButton: ButtonModel {
-    
     let label: String?
     let imageName: String? = nil
     let color: Color
@@ -60,6 +60,7 @@ class LabelButton: ButtonModel {
         self.color = color
     }
     
+    func modify(expression e: inout String) {}
 }
 
 /**
@@ -74,20 +75,22 @@ class ImageButton: ButtonModel {
         self.imageName = imageName
         self.color = color
     }
+    
+    func modify(expression e: inout String) {}
 }
 
 // Useful buttons mapped to specific calculator functions
 
-class NumberButton: LabelButton, DisplayButton {
+class NumberButton: LabelButton {
     
-    func modify(expression e: inout String) {
+    override func modify(expression e: inout String) {
         e.append(label!) // numbers can be added reguardless of what was added before
     }
 }
 
-class OperatorButton: LabelButton, DisplayButton {
+class OperatorButton: LabelButton {
     
-    func modify(expression e: inout String) {
+    override func modify(expression e: inout String) {
         if let lastChar = e.last {
             let last = String(lastChar)
             if !last.isEmpty && !isOperator(last) && last != dot && last != openingPar {
@@ -98,9 +101,9 @@ class OperatorButton: LabelButton, DisplayButton {
     }
 }
 
-class DotButton: LabelButton, DisplayButton {
+class DotButton: LabelButton {
     
-    func modify(expression e: inout String) {
+    override func modify(expression e: inout String) {
         if e.isEmpty {
             e.append(numbers[0] + dot)
             return
@@ -121,23 +124,50 @@ class DotButton: LabelButton, DisplayButton {
     }
 }
 
-class ParButton: LabelButton, DisplayButton {
+class ParButton: LabelButton {
     
-    static var bracketStack = 0
+    static var bracketStack: UInt = 0 // the stack can only hold positive values and 0
     
-    func modify(expression e: inout String) {
+    override func modify(expression e: inout String) {
+        let stack = ParButton.bracketStack
+        
         switch label {
-        case openingPar:
-            
-            
-            ParButton.bracketStack += 1
-        case closingPar:
-            
-            
-            ParButton.bracketStack -= 1
-        default:
-            break
+        case openingPar: addOpeningPar(stack, &e)
+        case closingPar: addClosingPar(stack, &e)
+        default: break
         }
+    }
+    
+    func addOpeningPar(_ s: UInt, _ e: inout String) {
+        if let last = e.last {
+            if String(last) == closingPar { e.append(mult) }
+        }
+        
+        e.append(openingPar)
+        ParButton.bracketStack += 1
+    }
+    func addClosingPar(_ s: UInt, _ e: inout String) {
+        guard s > 0 else { return }
+        guard !e.isEmpty else { return }
+        guard String(e.last!) != dot else { return }
+        
+        e.append(closingPar)
+        
+        ParButton.bracketStack -= 1
+    }
+}
+
+class EqualsButton: LabelButton {
+    override func modify(expression e: inout String) {
+        //TODO: parse and solve
+        //Check that ParButton.bracketStack is 0
+    }
+}
+
+class ClearButton: LabelButton {
+    
+    override func modify(expression e: inout String) {
+        e = ""
     }
 }
 

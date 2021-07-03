@@ -16,8 +16,8 @@ struct CalculatorButton: View {
         Button(action: function) {
             ZStack {
                 // empty imageName results in text button and vice versa
-                Image(systemName: fb.imageName)
-                Text(fb.label)
+                Image(systemName: fb.imageName ?? "")
+                Text(fb.label ?? "")
                     .font(Font.custom("Avenir", size: 32))
                     .fontWeight(.medium)
             }
@@ -42,6 +42,6 @@ struct CalculatorButton: View {
 
 struct CalculatorButton_Previews: PreviewProvider {
     static var previews: some View {
-        CalculatorButton(fb: ButtonModel(label: "t", color: Color.pink), screenWidth: 400, function: {})
+        CalculatorButton(fb: NumberButton(label: numbers[3], color: Color.pink), screenWidth: 400, function: {})
     }
 }
