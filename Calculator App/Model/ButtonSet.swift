@@ -7,6 +7,9 @@
 
 import Foundation
 
+/**
+ * A button set consists of a set of 4x5 buttons
+ */
 struct ButtonSet {
     
 }
