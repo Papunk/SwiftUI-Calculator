@@ -19,8 +19,10 @@ struct VisualTheme {
 }
 
 
+
 let lightTheme = VisualTheme(numColor: .gray, auxColor: .secondary, opColor: .pink, dispColor: .gray.opacity(0.1), dispTextColor: .black, buttonTextColor: .white)
 let darkTheme = VisualTheme(numColor: .gray, auxColor: .secondary, opColor: .pink, dispColor: .gray.opacity(0.1), dispTextColor: .black, buttonTextColor: .white)
 let texas = VisualTheme(numColor: .gray, auxColor: .secondary, opColor: .pink, dispColor: .gray.opacity(0.1), dispTextColor: .black, buttonTextColor: .white)
 
-
+let themes = [lightTheme, darkTheme, texas]
+var currentTheme = lightTheme
