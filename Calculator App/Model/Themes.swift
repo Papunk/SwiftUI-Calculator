@@ -19,5 +19,8 @@ struct VisualTheme {
 }
 
 
-var lightTheme = VisualTheme(numColor: .gray, auxColor: .secondary, opColor: .pink, dispColor: .gray, dispTextColor: .black, buttonTextColor: .white)
-var Texas = (n: Color(#colorLiteral(red: 1, green: 0.9775413871, blue: 0.9145861268, alpha: 1)), m: Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)), o: Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)))
+let lightTheme = VisualTheme(numColor: .gray, auxColor: .secondary, opColor: .pink, dispColor: .gray.opacity(0.1), dispTextColor: .black, buttonTextColor: .white)
+let darkTheme = VisualTheme(numColor: .gray, auxColor: .secondary, opColor: .pink, dispColor: .gray.opacity(0.1), dispTextColor: .black, buttonTextColor: .white)
+let texas = VisualTheme(numColor: .gray, auxColor: .secondary, opColor: .pink, dispColor: .gray.opacity(0.1), dispTextColor: .black, buttonTextColor: .white)
+
+
