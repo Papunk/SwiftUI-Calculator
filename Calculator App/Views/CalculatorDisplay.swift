@@ -16,7 +16,7 @@ struct CalculatorDisplay: View {
     var body: some View {
         Text(expression.isEmpty ? "hello!" : expression)
             .frame(width: screenWidth - 15, height: screenHeight / 4, alignment: .center)
-            .background(Color.gray.opacity(0.1))
+            .background(currentTheme.dispColor)
             .font(Font.title).colorInvert()
             .clipShape(RoundedRectangle(cornerSize: CGSize.init(width: 35, height: 35)))
             .overlay(RoundedRectangle(cornerSize: .init(width: 35, height: 35)).stroke(lineWidth: 3)).colorInvert()
