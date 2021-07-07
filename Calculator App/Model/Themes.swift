@@ -45,3 +45,9 @@ let texas = VisualTheme(numColor: .gray, auxColor: .secondary, opColor: .pink, d
 
 let themes = [lightTheme, darkTheme, texas]
 var currentTheme = lightTheme
+
+//class CurrentTheme: ObservableObject {
+//    @Published var theme: VisualTheme
+//    
+//    init(theme: VisualTheme) { self.theme = theme }
+//}

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
+    @StateObject var currentTheme = VisualTheme()
     
     @State var screenWidth = UIScreen.main.bounds.width
     @State var screenHeight = UIScreen.main.bounds.height
@@ -23,6 +24,7 @@ struct ContentView: View {
                 .padding()
             ButtonLayout(screenWidth: screenWidth, expression: $exp)
         }
+        .environmentObject(currentTheme)
     }
 }
 

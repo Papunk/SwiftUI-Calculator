@@ -12,6 +12,8 @@ struct CalculatorDisplay: View {
     var screenWidth: CGFloat
     var screenHeight: CGFloat
     @Binding var expression: String
+    
+    @EnvironmentObject var currentTheme: VisualTheme
         
     var body: some View {
         Text(expression.isEmpty ? "hello!" : expression)

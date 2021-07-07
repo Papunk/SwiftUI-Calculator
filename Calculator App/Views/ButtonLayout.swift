@@ -11,6 +11,8 @@ struct ButtonLayout: View {
     var screenWidth: CGFloat
     @Binding var expression: String
     
+    @EnvironmentObject var currentTheme: VisualTheme
+    
     var buttonRows: [[ButtonModel]] = [
         [
             ClearButton(label: "C", color: .secondary),
@@ -37,7 +39,7 @@ struct ButtonLayout: View {
             OperatorButton(label: div, color: .pink)
         ],
         [
-            ImageButton(imageName: "gearshape.2", color: .secondary),
+            ImageButton(imageName: "gearshape.fill", color: .secondary),
             NumberButton(label: "0", color: .gray),
             DotButton(label: ".", color: .secondary),
             EqualsButton(label: eq, color: .pink)
