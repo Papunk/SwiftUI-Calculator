@@ -15,6 +15,7 @@ struct ButtonSet {
     
     var buttonRows: [[ButtonModel]] {
         get {
+            // make a away to customize this...?
             [
                 [
                     ClearButton(label: "C", color: t.auxColor),
@@ -23,28 +24,28 @@ struct ButtonSet {
                     OperatorButton(label: add, color: t.opColor)
                 ],
                 [
-                    NumberButton(label: "7", color: .gray),
-                    NumberButton(label: "8", color: .gray),
-                    NumberButton(label: "9", color: .gray),
+                    NumberButton(label: "7", color: t.numColor),
+                    NumberButton(label: "8", color: t.numColor),
+                    NumberButton(label: "9", color: t.numColor),
                     OperatorButton(label: sub, color: t.opColor)
                 ],
                 [
-                    NumberButton(label: "4", color: .gray),
-                    NumberButton(label: "5", color: .gray),
-                    NumberButton(label: "6", color: .gray),
+                    NumberButton(label: "4", color: t.numColor),
+                    NumberButton(label: "5", color: t.numColor),
+                    NumberButton(label: "6", color: t.numColor),
                     OperatorButton(label: mult, color: t.opColor)
                 ],
                 [
-                    NumberButton(label: "1", color: .gray),
-                    NumberButton(label: "2", color: .gray),
-                    NumberButton(label: "3", color: .gray),
+                    NumberButton(label: "1", color: t.numColor),
+                    NumberButton(label: "2", color: t.numColor),
+                    NumberButton(label: "3", color: t.numColor),
                     OperatorButton(label: div, color: t.opColor)
                 ],
                 [
-                    ImageButton(imageName: "gearshape.fill", color: .secondary),
-                    NumberButton(label: "0", color: .gray),
-                    DotButton(label: ".", color: .secondary),
-                    EqualsButton(label: eq, color: .pink)
+                    ImageButton(imageName: "gearshape.fill", color: t.auxColor),
+                    NumberButton(label: "0", color: t.numColor),
+                    DotButton(label: ".", color: t.auxColor),
+                    EqualsButton(label: eq, color: t.opColor)
                 ]
             ]
         }
