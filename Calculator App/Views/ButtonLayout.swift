@@ -13,9 +13,10 @@ struct ButtonLayout: View {
     
     @EnvironmentObject var currentTheme: VisualTheme
     
+    // figure out how to instantiate this correctly (maybe feed it in as an arg???)
     var buttonRows: [[ButtonModel]] = [
         [
-            ClearButton(label: "C", color: .secondary), // figure out how to instantiate this correctly (maybe feed it in as an arg???)
+            ClearButton(label: "C", color: .secondary),
             ParButton(label: "(", color: .secondary),
             ParButton(label: ")", color: .secondary),
             OperatorButton(label: add, color: .pink)
