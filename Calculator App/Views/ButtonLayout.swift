@@ -15,7 +15,7 @@ struct ButtonLayout: View {
     
     var buttonRows: [[ButtonModel]] = [
         [
-            ClearButton(label: "C", color: .secondary),
+            ClearButton(label: "C", color: .secondary), // figure out how to instantiate this correctly (maybe feed it in as an arg???)
             ParButton(label: "(", color: .secondary),
             ParButton(label: ")", color: .secondary),
             OperatorButton(label: add, color: .pink)
@@ -67,5 +67,6 @@ struct ButtonLayout: View {
 struct ButtonLayout_Previews: PreviewProvider {
     static var previews: some View {
         ButtonLayout(screenWidth: UIScreen.main.bounds.width, expression: .constant(""))
+            .environmentObject(VisualTheme())
     }
 }
