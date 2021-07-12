@@ -14,6 +14,7 @@ struct ButtonLayout: View {
     @EnvironmentObject var currentTheme: VisualTheme
     
     // figure out how to instantiate this correctly (maybe feed it in as an arg???)
+    // (Sun-Jul-11) Buttons might need to also read from environment
     var buttonRows: [[ButtonModel]] = [
         [
             ClearButton(label: "C", color: .secondary),
