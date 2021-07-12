@@ -21,7 +21,11 @@ struct CalculatorDisplay: View {
             .background(currentTheme.dispColor)
             .font(Font.title)
             .clipShape(RoundedRectangle(cornerSize: CGSize.init(width: 35, height: 35)))
-            .overlay(RoundedRectangle(cornerSize: .init(width: 35, height: 35)).stroke(lineWidth: 3))
+            .overlay(
+                RoundedRectangle(cornerSize: .init(width: 35, height: 35))
+                    .stroke(lineWidth: 3)
+                    .foregroundColor(currentTheme.dispBorderColor)
+            )
             .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
     }
 }
